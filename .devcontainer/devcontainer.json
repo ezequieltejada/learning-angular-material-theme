@@ -2,7 +2,15 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
 	"name": "Angular Material Theme",
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:16-bullseye",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version: 16, 14, 12.
+		// Append -bullseye or -buster to pin to an OS version.
+		// Use -bullseye variants on local on arm64/Apple Silicon.
+		"args": {
+			"VARIANT": "16"
+		}
+	},
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:1": {},
 		"ghcr.io/devcontainers/features/git:1": {}
@@ -17,7 +25,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+	// "postCreateCommand": "yarn global add @angular/cli@11.2.1"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
